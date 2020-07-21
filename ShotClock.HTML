@@ -1,0 +1,87 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Water Polo Scoreboard</title>
+  <meta name="Nathan Hedgecock">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body onload="updateValues();">
+  <script src="scripts.js"></script>
+  <div class="stats">
+
+    <div id="game-time" class="boxed">
+      <span title="Pause/Play both clocks"><h1 id="cur-game-time" onClick ="gameTimer.startStopTimer(); shotTimer.startStopTimer();"> <span> -:-- </span></h1></span>
+    </div>
+
+    <div>
+      <div id="home">
+        <h2 contenteditable="true"> HOME </h2>
+        <span title="Edit"> <h2 id="homeGoals" class="score boxed" contenteditable="True">0</h2></span>
+        <span title="Add goal"> <p class = "symbol plus" onClick ="addHome();"> + </p></span>
+        <span title="Subtract goal"> <p class = "symbol minus" onClick ="subHome();"> - </p></span>
+      </div>
+      <div id="guest">
+        <h2 contenteditable="true"> GUEST </h2>
+        <span title="Edit"> <h2 id="guestGoals" class="score boxed" contenteditable="True"> 0 </h2></span>
+        <span title="Add goal"> <p class = "symbol plus" onClick ="addGuest();"> + </p></span>
+          <span title="Subtract goal"> <p class = "symbol minus" onClick ="subGuest();"> - </p></span>
+      </div>
+    </div>
+
+    <div>
+      <div id="quarter">
+        <h2> Quarter </h2>
+        <span title="Edit"><h2 id=curQuarter class="score boxed" contenteditable="True"> 1 </h2></span>
+      </div>
+    </div>
+
+    <div>
+      <div id="tol-1"><span title="Click to hide/show">
+        <h2> T.O.L </h2>
+        <h2 id="dot1" class="dot" onClick="hideOrShow('dot1');"></h2>
+        <h2 id="dot2" class="dot" onClick="hideOrShow('dot2');"></h2>
+        <h2 id="dot3" class="dot" onClick="hideOrShow('dot3');"></h2>
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <div id="tol-2"><span title="Click to hide/show">
+        <h2> T.O.L </h2>
+        <h2 id="dot4" class="dot" onClick="hideOrShow('dot4');"></h2>
+        <h2 id="dot5" class="dot" onClick="hideOrShow('dot5');"></h2>
+        <h2 id="dot6" class="dot" onClick="hideOrShow('dot6');"></h2>
+        </span>
+      </div>
+    </div>
+
+    <div id="shot-time" class="boxed">
+      <span title="Rest shot clock"><h1 id="cur-shot-time" onClick ="shotTimer.resetShotClock();"> <span> -- </span></h1></span>
+    </div>
+
+  </div>
+
+  <div class="droppp">
+  <div class="dropdown" id="settings">
+    <button class="dropbtn">Edit Times</button>
+    <div class="dropdown-content">
+
+      <form id="settInputs" oninput="updateValues(); return false; ">
+        Game Time: <input type="text" name="gTime" value="8:00"><br>
+        Shot Time: <input type="text" name="sTime" value="35"><br>
+        <hr>
+        Game Clock Length: <input type="text" name="gLength" value="8:00"><br>
+        Shot Clock Length: <input type="text" name="sLength" value="35"><br>
+      </form> 
+      
+    </div>
+  </div>
+  </div>
+  <p>Created by Nathan Hedgecock</p>
+</body>
+</html>
